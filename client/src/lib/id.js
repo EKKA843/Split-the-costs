@@ -1,0 +1,5 @@
+// crypto.randomUUID ใช้ได้เฉพาะ https/localhost จึงมีตัวสำรอง
+export function createId() {
+  if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID()
+  return Date.now().toString(36) + Math.random().toString(36).slice(2)
+}
